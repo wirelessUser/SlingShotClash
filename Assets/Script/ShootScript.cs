@@ -20,7 +20,9 @@ public class ShootScript : MonoBehaviour
 
     public GameObject ballPrefab;
    public GameObject ballsContainer;
+   public  List<GameObject> InstanitatedBallList;
 
+    public GameController gc;
     void Awake()
     {
        // gc = GameObject.Find("GameController").GetComponent<GameController>();
@@ -37,12 +39,14 @@ public class ShootScript : MonoBehaviour
     {
         ballBody = ballPrefab.GetComponent<Rigidbody>();
 
-        //if (gc.shotCount <= 3 && !IsMouseOverUI())
-        //{
-        Aim();
+        if (gc.shotCount <= 3 )
+        {
+            Aim();
         
         Rotate();
-        //}
+    }
+
+    DestroyBalls();
     }
 
     //private bool IsMouseOverUI()
@@ -73,7 +77,7 @@ public class ShootScript : MonoBehaviour
             aiming = false;
             HideDots();
              StartCoroutine(Shoot());
-
+            Camera.main.GetComponent<CameraEfefcts>().RotateCameraToSide();
             //if (gc.shotCount == 1)
             //    Camera.main.GetComponent<CameraTransitions>().RotateCameraToSide();
         }
@@ -129,15 +133,47 @@ public class ShootScript : MonoBehaviour
 
    IEnumerator Shoot()
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 50; i++)
         {
             yield return new WaitForSeconds(0.05f);
-            GameObject ball = Instantiate(ballPrefab, ballsContainer.transform.position, ballsContainer.transform.rotation);
+          GameObject   ball = Instantiate(ballPrefab, ballsContainer.transform.position, ballsContainer.transform.rotation);
             ball.name = "Ball";
-           // ball.gameObject.tag = "Ball";
+           ball.gameObject.tag = "Ball";
             ballBody = ball.GetComponent<Rigidbody>();
             ballBody.AddForce(ShootForce(Input.mousePosition));
-
+            InstanitatedBallList.Add(ball);
         }
+
+        gc.shotCount++;
     }
+
+
+    public void DestroyBalls()
+    {
+      
+        for (int i = 0; i < InstanitatedBallList.Count; i++)
+        {
+
+
+            // InstanitatedBallList.RemoveRange(0, InstanitatedBallList.Count);
+            
+
+            //if (i== InstanitatedBallList.Count-1)
+            //{
+                
+                if (InstanitatedBallList[i].transform.position.y <= -4f)
+                {
+                    Destroy(InstanitatedBallList[i]);
+                InstanitatedBallList.RemoveAt(i);
+                }
+                
+            //}
+            
+        }
+       // InstanitatedBallList.RemoveAll(ball => ball == null/* && ball.transform.position.y <= -4f*/);
+
+
+    }
+
+    
 }
