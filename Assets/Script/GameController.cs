@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+
     public GameObject[] blocks;
     public List<GameObject> LevelsList;
 
@@ -11,6 +12,8 @@ public class GameController : MonoBehaviour
     public GameObject Level2;
      Vector3 Level1Pos;
      Vector3 Level2Pos;
+
+   public int shotCount;
     void Start()
     {
         Physics2D.gravity = new Vector2(0, 50);
@@ -25,6 +28,9 @@ public class GameController : MonoBehaviour
 
     public void SpawnNewLevel(int min,int max)
     {
+
+        shotCount = 1;
+        Camera.main.GetComponent<CameraEfefcts>().RotateCameraToFront();
         Level1Pos = new Vector3(-4f, 1f, 25);
         Level1Pos = new Vector3(7f, 1f, 25);
 

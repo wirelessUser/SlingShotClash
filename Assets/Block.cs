@@ -31,10 +31,12 @@ public class Block : MonoBehaviour
 
         if (collision.gameObject.tag=="Ball" && count>0)
         {
+            Camera.main.GetComponent<CameraEfefcts>().SmallShake();
             count--;
 
             if (count==0)
             {
+                Camera.main.GetComponent<CameraEfefcts>().BigShake();
                 Destroy(gameObject);
             }
         }
