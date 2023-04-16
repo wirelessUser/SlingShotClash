@@ -429,6 +429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cabefe0040c7bdf4cb0c494bd1668481, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blocks: []
   LevelsList:
   - {fileID: 2359, guid: d4106294e37148e5bf0611ead7f94791, type: 3}
   - {fileID: 2637, guid: 2e05bd7e33b347219e91a8aae0eca5e7, type: 3}
@@ -990,6 +991,7 @@ MonoBehaviour:
   projectilesPath: []
   ballPrefab: {fileID: 1641844679}
   ballsContainer: {fileID: 1762066618}
+  InstanitatedBallList: []
 --- !u!1 &755389930
 GameObject:
   m_ObjectHideFlags: 0
@@ -2167,11 +2169,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5366006550443577407, guid: 4485ce9cf0869874f85c2f5ba6c190f7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.2
+      value: 15.96
       objectReference: {fileID: 0}
     - target: {fileID: 5366006550443577407, guid: 4485ce9cf0869874f85c2f5ba6c190f7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.96
+      value: 2.14
       objectReference: {fileID: 0}
     - target: {fileID: 5366006550443577407, guid: 4485ce9cf0869874f85c2f5ba6c190f7, type: 3}
       propertyPath: m_LocalPosition.z
