@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
      Vector3 Level2Pos;
     void Start()
     {
+        Physics2D.gravity = new Vector2(0, 50);
         SpawnNewLevel();
     }
 
