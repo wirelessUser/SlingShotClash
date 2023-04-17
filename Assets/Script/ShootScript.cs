@@ -65,7 +65,7 @@ public class ShootScript : MonoBehaviour
             {
                 aiming = true;
                 startPos = Input.mousePosition;
-               // gc.CheckShotCount();
+                gc.CheckForShotTextScript();
             }
             else
             {

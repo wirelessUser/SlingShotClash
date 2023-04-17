@@ -36,7 +36,7 @@ public class CameraEfefcts : MonoBehaviour
             shakeAmount = 0;
 
         }
-        Debug.Log("Outside if Update");
+        //Debug.Log("Outside if Update");
         this.transform.position = InitialPos;
 
 
