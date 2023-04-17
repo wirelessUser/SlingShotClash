@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-
+    public ShotCountText shotCountTexts;
     public GameObject[] blocks;
     public List<GameObject> LevelsList;
 
@@ -54,5 +54,36 @@ public class GameController : MonoBehaviour
         }
        
        
+    }
+
+
+    public void CheckForShotTextScript()
+    {
+        if (shotCount==1)
+        {
+            shotCountTexts.SetShotText_1("SHOT-COUNT");
+            shotCountTexts.SetShotText_2("1/3");
+
+
+            shotCountTexts.AnimationCanvas();
+        }
+
+        if (shotCount == 2)
+        {
+            shotCountTexts.SetShotText_1("SHOT-COUNT");
+            shotCountTexts.SetShotText_2("1/3");
+
+
+            shotCountTexts.AnimationCanvas();
+        }
+
+        if (shotCount == 3)
+        {
+            shotCountTexts.SetShotText_1("SHOT-COUNT");
+            shotCountTexts.SetShotText_2("3/3");
+
+
+            shotCountTexts.AnimationCanvas();
+        }
     }
 }
