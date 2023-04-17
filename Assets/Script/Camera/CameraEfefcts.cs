@@ -24,9 +24,10 @@ public class CameraEfefcts : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("caling Update Of camrera");
+       
         if (shakeAmount>0.01f)
         {
+            
             Debug.Log("Inside th shake Amount If Block");
             Vector3 localPosition = startingLocalPos;
             localPosition.x += shakeAmount * Random.Range(2, 3);
@@ -35,6 +36,7 @@ public class CameraEfefcts : MonoBehaviour
             shakeAmount = 0;
 
         }
+        Debug.Log("Outside if Update");
         this.transform.position = InitialPos;
 
 
