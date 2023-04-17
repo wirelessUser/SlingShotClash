@@ -16,7 +16,7 @@ public class ShootScript : MonoBehaviour
     public GameObject Dots;
     public List<GameObject> projectilesPath;
 
-    private Rigidbody ballBody;
+    private Rigidbody2D ballBody;
 
     public GameObject ballPrefab;
    public GameObject ballsContainer;
@@ -37,7 +37,7 @@ public class ShootScript : MonoBehaviour
 
     void Update()
     {
-        ballBody = ballPrefab.GetComponent<Rigidbody>();
+        ballBody = ballPrefab.GetComponent<Rigidbody2D>();
 
         if (gc.shotCount <= 3 )
         {
@@ -139,7 +139,7 @@ public class ShootScript : MonoBehaviour
           GameObject   ball = Instantiate(ballPrefab, ballsContainer.transform.position, ballsContainer.transform.rotation);
             ball.name = "Ball";
            ball.gameObject.tag = "Ball";
-            ballBody = ball.GetComponent<Rigidbody>();
+            ballBody = ball.GetComponent<Rigidbody2D>();
             ballBody.AddForce(ShootForce(Input.mousePosition));
             InstanitatedBallList.Add(ball);
         }
